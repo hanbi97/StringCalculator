@@ -1,3 +1,5 @@
+import javafx.beans.binding.BooleanExpression;
+
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -5,15 +7,27 @@ import java.util.regex.Pattern;
 public class StringCalculator {
     public int add(String input) {
         if (isBlank(input)) return 0;
-        return sum(toInteger(input.split(",|:")));
+        if(findCustom(input)==null) return sum(toInteger(input.split(",|:")));
+        return sum(toInteger(findCustom(input)));
     }
 
-    /**
-     * Check if input is Blank or not
-     */
+    /** Check if input is Blank or not */
     private Boolean isBlank(String input) {
         if (input == null || input.isEmpty()) return true;
         return false;
+    }
+
+    /** Find custom Delimiter */
+    private String[] findCustom(String input) {
+        Pattern pattern = Pattern.compile("//(.)\n(.*)");
+        Matcher matcher = pattern.matcher(input);
+
+        if (matcher.find()) {
+            String delimiter = matcher.group(1);
+            String expressions = matcher.group(2);
+            return expressions.split(delimiter);
+        }
+        return null;
     }
 
     /**
