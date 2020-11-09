@@ -36,6 +36,12 @@ public class StringCalculatorTest {
         assertEquals(6, c.add("1,2:3"));
     }
 
+    @Test
+    public void add_number_with_custom_delimiter() {
+        /** assertEquals **/
+        assertEquals(6, c.add("//;\n1;2;3"));
+    }
+
     @After
     public void finished() {
         System.out.println("test done");
