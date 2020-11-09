@@ -30,9 +30,10 @@ public class StringCalculatorTest {
     }
 
     @Test
-    public void add_number_with_comma() {
+    public void add_number_with_comma_colon() {
         /** assertEquals **/
         assertEquals(6, c.add("1,2,3"));
+        assertEquals(6, c.add("1,2:3"));
     }
 
     @After
