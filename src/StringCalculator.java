@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 public class StringCalculator {
     public int add(String input) {
         if (isBlank(input)) return 0;
-        return sum(toInteger(input.split(",")));
+        return sum(toInteger(input.split(",|:")));
     }
 
     /**
