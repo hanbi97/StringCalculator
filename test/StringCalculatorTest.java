@@ -19,14 +19,20 @@ public class StringCalculatorTest {
         //System.out.println(cal.add(1,2));
 
         /** assertEquals **/
-        assertEquals(0, c.add(""));
         assertEquals(0, c.add(null));
+        assertEquals(0, c.add(""));
     }
 
     @Test
     public void add_one_number() {
         /** assertEquals **/
         assertEquals(123, c.add("123"));
+    }
+
+    @Test
+    public void add_number_with_comma() {
+        /** assertEquals **/
+        assertEquals(6, c.add("1,2,3"));
     }
 
     @After

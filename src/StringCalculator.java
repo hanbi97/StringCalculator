@@ -5,9 +5,16 @@ import java.util.regex.Pattern;
 public class StringCalculator {
     int add(String input) {
         int result = 0;
-        if (input.isEmpty() || input==null)
+        if (input==null||input.isEmpty()) {
             return result;
-
+        }
+        if (input.contains(",")){
+            String[] values = input.split(",");
+            for(String val : values){
+                result += Integer.parseInt(val);
+            }
+            return result;
+        }
         return Integer.parseInt(input);
     }
 }
