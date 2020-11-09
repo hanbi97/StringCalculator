@@ -7,6 +7,7 @@ public class StringCalculator {
         int result = 0;
         if (input.isEmpty() || input==null)
             return result;
-        return result;
+
+        return Integer.parseInt(input);
     }
 }

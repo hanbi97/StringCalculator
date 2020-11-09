@@ -14,13 +14,19 @@ public class StringCalculatorTest {
     }
 
     @Test
-    public void add_null() {
+    public void add_null_or_empty() {
         /** do not check the calculation result with my eyes **/
         //System.out.println(cal.add(1,2));
 
         /** assertEquals **/
         assertEquals(0, c.add(""));
         assertEquals(0, c.add(null));
+    }
+
+    @Test
+    public void add_one_number() {
+        /** assertEquals **/
+        assertEquals(123, c.add("123"));
     }
 
     @After
